@@ -146,7 +146,7 @@ public class ${root.modelUpperName}ServiceImpl implements ${root.modelUpperName}
     }
 
     @Override
-    public Boolean deleteBatch(List<Integer> list)
+    public Boolean deleteBatch(List<${root.primaryType}> list)
         throws Exception
     {
         if (list != null && list.size() > 0){

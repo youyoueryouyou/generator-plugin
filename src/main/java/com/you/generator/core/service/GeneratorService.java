@@ -73,6 +73,7 @@ public class GeneratorService {
         Freemarker.overWriteFile(ftlPath+"bean.ftl",rootMap,api_path+"bean"+File.separator+config.getModelName()+"Bean.java");
         Freemarker.writeFile(ftlPath+"model.ftl",rootMap,api_path+"model"+File.separator+config.getModelName()+"Model.java");
         Freemarker.writeFile(ftlPath+"api.ftl",rootMap,api_path+"api"+File.separator+config.getModelName()+"Api.java");
+        Freemarker.writeFile(ftlPath+"hystric.ftl",rootMap,api_path+"hystric"+File.separator+config.getModelName()+"Hystric.java");
         Freemarker.overWriteFile(ftlPath+"condition.ftl",rootMap,provider_path+"condition"+File.separator+config.getModelName()+"Condition.java");
         Freemarker.writeFile(ftlPath+"serviceInter.ftl",rootMap,provider_path+"service"+File.separator+config.getModelName()+"Service.java");
         Freemarker.writeFile(ftlPath+"serviceImpl.ftl",rootMap,provider_path+"service"+File.separator+"impl"+File.separator+config.getModelName()+"ServiceImpl.java");

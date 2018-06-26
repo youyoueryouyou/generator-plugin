@@ -58,6 +58,7 @@ public class GeneratorService {
             throw new Exception("table:"+config.getTableName() + " primaryKey not exists.");
         }
         rootMap.put("root",generatorModel);
+        rootMap.put("config",config);
     }
     private void generator() throws Exception{
         if (rootMap.size() == 0){
@@ -71,13 +72,14 @@ public class GeneratorService {
         String resource_path = config.getProjectPath() + File.separator + config.getModuleName() + "-provider" + File.separator + resPath + File.separator;
         Freemarker.overWriteFile(ftlPath+"bean.ftl",rootMap,api_path+"bean"+File.separator+config.getModelName()+"Bean.java");
         Freemarker.writeFile(ftlPath+"model.ftl",rootMap,api_path+"model"+File.separator+config.getModelName()+"Model.java");
-        Freemarker.writeFile(ftlPath+"serviceInter.ftl",rootMap,api_path+"service"+File.separator+config.getModelName()+"Service.java");
+        Freemarker.writeFile(ftlPath+"api.ftl",rootMap,api_path+"api"+File.separator+config.getModelName()+"Api.java");
         Freemarker.overWriteFile(ftlPath+"condition.ftl",rootMap,provider_path+"condition"+File.separator+config.getModelName()+"Condition.java");
-        Freemarker.writeFile(ftlPath+"serviceImpl.ftl",rootMap,provider_path+"service"+File.separator+config.getModelName()+"ServiceImpl.java");
+        Freemarker.writeFile(ftlPath+"serviceInter.ftl",rootMap,provider_path+"service"+File.separator+config.getModelName()+"Service.java");
+        Freemarker.writeFile(ftlPath+"serviceImpl.ftl",rootMap,provider_path+"service"+File.separator+"impl"+File.separator+config.getModelName()+"ServiceImpl.java");
         Freemarker.writeFile(ftlPath+"controller.ftl",rootMap,provider_path+"controller"+File.separator+config.getModelName()+"Controller.java");
         Freemarker.writeFile(ftlPath+"mapper.ftl",rootMap,provider_path+"mapper"+File.separator+config.getModelName()+"Mapper.java");
         Freemarker.writeFile(ftlPath+"mybatis.ftl",rootMap,resource_path+"mybatis"+File.separator+config.getModelName()+"Mapper.xml");
-    }
+      }
     public void main(ConfigModel config) throws Exception{
         this.config = config;
         getTableInfo();

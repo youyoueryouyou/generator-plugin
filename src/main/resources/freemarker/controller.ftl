@@ -3,6 +3,7 @@ package ${root.groupName}.controller;
 
 import com.you.base.BaseResponse;
 import com.you.base.Page;
+import ${root.groupName}.api.${root.modelUpperName}Api;
 import ${root.groupName}.model.${root.modelUpperName}Model;
 import ${root.groupName}.service.${root.modelUpperName}Service;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("${root.modelLowerName}")
-public class ${root.modelUpperName}Controller {
+public class ${root.modelUpperName}Controller implements ${root.modelUpperName}Api{
     @Autowired
     private ${root.modelUpperName}Service ${root.modelLowerName}Service;
 

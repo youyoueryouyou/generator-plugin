@@ -1,4 +1,4 @@
-package ${root.groupName}.service;
+package ${root.groupName}.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,8 +9,9 @@ import com.you.base.BasePojo;
 import ${root.groupName}.condition.${root.modelUpperName}Condition;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.alibaba.dubbo.config.annotation.Service;
+import org.springframework.stereotype.Service;
 import com.you.base.Page;
+import ${root.groupName}.service.${root.modelUpperName}Service;
 import ${root.groupName}.mapper.${root.modelUpperName}Mapper;
 import ${root.groupName}.model.${root.modelUpperName}Model;
 

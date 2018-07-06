@@ -5,6 +5,9 @@ import com.you.base.Column;
 import com.you.base.Table;
 import java.util.Date;
 
+/**
+ * @author ${config.author}
+ */
 @Table("${root.tableName}")
 public class ${root.modelUpperName}Bean extends BaseModel{
     <#list root.fields as p>

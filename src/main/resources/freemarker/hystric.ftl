@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/**
+ * @author ${config.author}
+ */
 @Component
 public class ${root.modelUpperName}Hystric implements ${root.modelUpperName}Api {
     @Override

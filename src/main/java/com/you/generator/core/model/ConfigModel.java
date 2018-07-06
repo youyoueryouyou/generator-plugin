@@ -12,6 +12,7 @@ public class ConfigModel {
     private String moduleName;
     private String tableName;
     private String modelName;
+    private String author;
 
     public String getGroupName() {
         return groupName;
@@ -77,17 +78,26 @@ public class ConfigModel {
         this.tableName = tableName;
     }
 
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
     @Override
     public String toString() {
         return "ConfigModel{" +
-                "groupName='" + groupName + '\'' +
-                ", jdbcUrl='" + jdbcUrl + '\'' +
+                "jdbcUrl='" + jdbcUrl + '\'' +
                 ", jdbcUser='" + jdbcUser + '\'' +
                 ", jdbcPassword='" + jdbcPassword + '\'' +
                 ", projectPath='" + projectPath + '\'' +
+                ", groupName='" + groupName + '\'' +
                 ", moduleName='" + moduleName + '\'' +
                 ", tableName='" + tableName + '\'' +
                 ", modelName='" + modelName + '\'' +
+                ", author='" + author + '\'' +
                 '}';
     }
 }

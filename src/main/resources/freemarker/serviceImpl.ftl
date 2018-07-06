@@ -15,6 +15,9 @@ import ${root.groupName}.service.${root.modelUpperName}Service;
 import ${root.groupName}.mapper.${root.modelUpperName}Mapper;
 import ${root.groupName}.model.${root.modelUpperName}Model;
 
+/**
+ * @author ${config.author}
+ */
 @Service
 public class ${root.modelUpperName}ServiceImpl implements ${root.modelUpperName}Service {
     @Autowired

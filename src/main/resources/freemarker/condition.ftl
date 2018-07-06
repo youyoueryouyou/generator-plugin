@@ -5,6 +5,9 @@ import ${root.groupName}.model.${root.modelUpperName}Model;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author ${config.author}
+ */
 public class ${root.modelUpperName}Condition extends BaseCondition {
     public ${root.modelUpperName}Condition(${root.modelUpperName}Model model) throws Exception {
         super(model);

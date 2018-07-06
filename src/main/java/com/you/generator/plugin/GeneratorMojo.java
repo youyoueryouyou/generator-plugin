@@ -83,6 +83,14 @@ public class GeneratorMojo extends AbstractMojo
      * @parameter expression="${project.build.directory}"
      * @required
      */
+    private String author;
+
+    /**
+     * Location of the file.
+     *
+     * @parameter expression="${project.build.directory}"
+     * @required
+     */
     private String testValue;
     
     public void execute()
@@ -144,6 +152,12 @@ public class GeneratorMojo extends AbstractMojo
         if (StringUtil.isNotEmpty(modelName) && !testValue.equals(modelName))
         {
             configModel.setModelName(modelName);
+        }
+        if (StringUtil.isNotEmpty(author) && !testValue.equals(author))
+        {
+            configModel.setAuthor(author);
+        }else {
+            configModel.setAuthor("generator");
         }
         try {
             GeneratorService.getInstnace().main(configModel);

@@ -10,12 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
+/**
+ * @author ${config.author}
+ */
 @RestController
 @RequestMapping("${root.modelLowerName}")
 public class ${root.modelUpperName}Controller implements ${root.modelUpperName}Api{
     @Autowired
     private ${root.modelUpperName}Service ${root.modelLowerName}Service;
 
+    @Override
     @PostMapping("add")
     public BaseResponse add(@RequestBody ${root.modelUpperName}Model param) {
         try {
@@ -28,6 +32,7 @@ public class ${root.modelUpperName}Controller implements ${root.modelUpperName}A
         return BaseResponse.failureMessage("add failure!");
     }
 
+    @Override
     @PostMapping("update")
     public BaseResponse update(@RequestBody ${root.modelUpperName}Model param) {
         try {
@@ -40,6 +45,7 @@ public class ${root.modelUpperName}Controller implements ${root.modelUpperName}A
         return BaseResponse.failureMessage("update failure!");
     }
 
+    @Override
     @PostMapping("delete/{${root.primaryName}}")
     public BaseResponse delete(@PathVariable ${root.primaryType} ${root.primaryName}) {
         try {
@@ -52,6 +58,7 @@ public class ${root.modelUpperName}Controller implements ${root.modelUpperName}A
         return BaseResponse.failureMessage("delete failure!");
     }
 
+    @Override
     @PostMapping("deleteBatch")
     public BaseResponse deleteBatch(@RequestBody List<${root.primaryType}> list) {
         try {
@@ -64,6 +71,7 @@ public class ${root.modelUpperName}Controller implements ${root.modelUpperName}A
         return BaseResponse.failureMessage("deleteBatch failure!");
     }
 
+    @Override
     @GetMapping("query/{${root.primaryName}}")
     public BaseResponse query(@PathVariable ${root.primaryType} ${root.primaryName}) {
         try {
@@ -77,7 +85,7 @@ public class ${root.modelUpperName}Controller implements ${root.modelUpperName}A
         return BaseResponse.failureMessage("query failure!");
     }
 
-
+    @Override
     @PostMapping("list")
     public BaseResponse list(@RequestBody(required = false) ${root.modelUpperName}Model param) {
         try {
@@ -89,6 +97,7 @@ public class ${root.modelUpperName}Controller implements ${root.modelUpperName}A
         return BaseResponse.failureMessage("list failure!");
     }
 
+    @Override
     @PostMapping("page")
     public BaseResponse page(@RequestBody(required = false) ${root.modelUpperName}Model param) {
         try {

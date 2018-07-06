@@ -7,6 +7,9 @@ import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
+/**
+ * @author ${config.author}
+ */
 @Mapper
 public interface ${root.modelUpperName}Mapper extends BaseMapper<${root.modelUpperName}Model,${root.modelUpperName}Condition> {
 

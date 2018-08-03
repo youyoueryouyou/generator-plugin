@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.hutool.core.util.RandomUtil;
-import com.alibaba.fastjson.JSONObject;
 import com.you.base.BasePojo;
 import ${root.groupName}.condition.${root.modelUpperName}Condition;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,6 +20,7 @@ import ${root.groupName}.model.${root.modelUpperName}Model;
 @Service
 public class ${root.modelUpperName}ServiceImpl implements ${root.modelUpperName}Service {
     @Autowired
+    @SuppressWarnings("all")
     private ${root.modelUpperName}Mapper ${root.modelLowerName}Mapper;
 
     @Override

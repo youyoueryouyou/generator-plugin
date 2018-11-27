@@ -37,7 +37,7 @@ public class GeneratorService {
             model.setJdbcName(map.get("COLUMN_NAME").toString());
             model.setJdbcType(map.get("COLUMN_TYPE").toString());
             String column_key = map.get("COLUMN_KEY").toString();
-            model.setIsPrimary(StringUtil.isNotEmpty(column_key));
+            model.setIsPrimary(StringUtil.isNotEmpty(column_key) && "PRI".equalsIgnoreCase(column_key));
             model.setJavaName(StringUtil.getFieldNameByDb(model.getJdbcName()));
             model.setUpperName(StringUtil.getFirstUpperName(model.getJavaName()));
             model.setJavaType(StringUtil.dbTypeToJavaType(model.getJdbcType()));

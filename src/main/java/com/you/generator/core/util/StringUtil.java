@@ -13,18 +13,48 @@ public class StringUtil {
     }
 
     public static String getFirstUpperName(String content){
-        return content.substring(0,1).toUpperCase()+content.substring(1);
+        char[] chars = content.toCharArray();
+        StringBuffer buffer = new StringBuffer();
+        buffer.append(String.valueOf(chars[0]).toUpperCase());
+        for (int i=1; i< chars.length; i++){
+            String c = String.valueOf(chars[i]);
+            if (i == 1){
+                buffer.append(c.toLowerCase());
+            }else {
+                if (String.valueOf(chars[i-1]).equals(String.valueOf(chars[i-1]).toUpperCase()) && c.equals(c.toUpperCase())){
+                    buffer.append(c.toLowerCase());
+                }else {
+                    buffer.append(c);
+                }
+            }
+        }
+        return buffer.toString();
     }
 
     public static String getFirstLowerName(String content){
-        return content.substring(0,1).toLowerCase()+content.substring(1);
+        char[] chars = content.toCharArray();
+        StringBuffer buffer = new StringBuffer();
+        buffer.append(String.valueOf(chars[0]).toLowerCase());
+        for (int i=1; i< chars.length; i++){
+            String c = String.valueOf(chars[i]);
+            if (i == 1){
+                buffer.append(c.toLowerCase());
+            }else {
+                if (String.valueOf(chars[i-1]).equals(String.valueOf(chars[i-1]).toUpperCase()) && c.equals(c.toUpperCase())){
+                    buffer.append(c.toLowerCase());
+                }else {
+                    buffer.append(c);
+                }
+            }
+        }
+        return buffer.toString();
     }
 
     public static String getModelNameByDb(String content){
         String[] temps = content.replace("_","#").replace("-","#").split("#");
         StringBuffer buffer = new StringBuffer();
         for (String temp : temps){
-            buffer.append(getFirstUpperName(temp.toLowerCase()));
+            buffer.append(getFirstUpperName(temp));
         }
         return buffer.toString();
     }
@@ -34,9 +64,9 @@ public class StringUtil {
         StringBuffer buffer = new StringBuffer();
         for (int i=0;i<temps.length;i++){
             if (i == 0){
-                buffer.append(getFirstLowerName(temps[i].toLowerCase()));
+                buffer.append(getFirstLowerName(temps[i]));
             }else {
-                buffer.append(getFirstUpperName(temps[i].toLowerCase()));
+                buffer.append(getFirstUpperName(temps[i]));
             }
         }
         return buffer.toString();
@@ -59,10 +89,6 @@ public class StringUtil {
         }else {
             return "String";
         }
-    }
-
-    public static void main(String[] args) {
-
     }
 }
 

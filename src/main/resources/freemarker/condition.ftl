@@ -9,7 +9,15 @@ import java.util.List;
  * @author ${config.author}
  */
 public class ${root.modelUpperName}Condition extends BaseCondition {
-    public ${root.modelUpperName}Condition(${root.modelUpperName}Model model) throws Exception {
+    public static ${root.modelUpperName}Condition getCondition(${root.modelUpperName}Model model) throws Exception{
+        if (model == null){
+            model = new ${root.modelUpperName}Model();
+        }
+        ${root.modelUpperName}Condition condition = new ${root.modelUpperName}Condition(model);
+        return condition;
+    }
+
+    private ${root.modelUpperName}Condition(${root.modelUpperName}Model model) throws Exception {
         super(model);
     }
 

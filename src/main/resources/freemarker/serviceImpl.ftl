@@ -29,7 +29,7 @@ public class ${root.modelUpperName}ServiceImpl implements ${root.modelUpperName}
     {
         ${root.modelUpperName}Model model = new ${root.modelUpperName}Model();
         model.set${root.primaryUpper}(${root.primaryName});
-        return ${root.modelLowerName}Mapper.selectByPrimaryKey(model).getPojo(new ${root.modelUpperName}Model());
+        return ${root.modelLowerName}Mapper.selectByPrimaryKey(model);
     }
 
     @Override
@@ -37,9 +37,9 @@ public class ${root.modelUpperName}ServiceImpl implements ${root.modelUpperName}
         throws Exception
     {
         ${root.modelUpperName}Condition condition = ${root.modelUpperName}Condition.getCondition(model);
-        List<BasePojo> list = ${root.modelLowerName}Mapper.selectByCondition(condition);
+        List<${root.modelUpperName}Model> list = ${root.modelLowerName}Mapper.selectByCondition(condition);
         if (list != null && list.size() > 0){
-            return list.get(0).getPojo(new ${root.modelUpperName}Model());
+            return list.get(0);
         }
         return null;
     }
@@ -49,7 +49,7 @@ public class ${root.modelUpperName}ServiceImpl implements ${root.modelUpperName}
         throws Exception
     {
         ${root.modelUpperName}Condition condition = ${root.modelUpperName}Condition.getCondition(model);
-        return getResultList(${root.modelLowerName}Mapper.selectByCondition(condition));
+        return ${root.modelLowerName}Mapper.selectByCondition(condition);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class ${root.modelUpperName}ServiceImpl implements ${root.modelUpperName}
         Page<${root.modelUpperName}Model> page = new Page<${root.modelUpperName}Model>(model);
         page.setRowCount(count);
         if (count > 0){
-            page.setResult(getResultList(${root.modelLowerName}Mapper.selectByCondition(condition)));
+            page.setResult(${root.modelLowerName}Mapper.selectByCondition(condition));
         }
         return page;
     }
@@ -151,15 +151,5 @@ public class ${root.modelUpperName}ServiceImpl implements ${root.modelUpperName}
             return count == list.size();
         }
         return false;
-    }
-
-    private List<${root.modelUpperName}Model> getResultList(List<BasePojo> list){
-        List<${root.modelUpperName}Model> result = new ArrayList<${root.modelUpperName}Model>();
-        if (list != null){
-            for (BasePojo pojo : list){
-                result.add(pojo.getPojo(new ${root.modelUpperName}Model()));
-            }
-        }
-        return result;
     }
 }

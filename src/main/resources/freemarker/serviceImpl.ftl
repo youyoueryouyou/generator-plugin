@@ -1,10 +1,8 @@
 package ${root.groupName}.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import cn.hutool.core.util.RandomUtil;
-import com.you.base.BasePojo;
 import ${root.groupName}.condition.${root.modelUpperName}Condition;
 import org.springframework.beans.factory.annotation.Autowired;
 

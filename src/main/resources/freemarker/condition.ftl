@@ -155,13 +155,13 @@ public class ${root.modelUpperName}Condition extends BaseCondition {
         return this;
     }
     
-    public ${root.modelUpperName}Condition and${p.upperName}ValueIn(List list)
+    public ${root.modelUpperName}Condition and${p.upperName}In(List list)
     {
         getCriteria().andValueIn("`${p.jdbcName}`", list);
         return this;
     }
     
-    public ${root.modelUpperName}Condition or${p.upperName}ValueIn(List list)
+    public ${root.modelUpperName}Condition or${p.upperName}In(List list)
     {
         getCriteria().orValueIn("`${p.jdbcName}`", list);
         return this;

@@ -25,7 +25,7 @@ public class ${root.modelUpperName}Service{
     {
         ${root.modelUpperName}Model model = new ${root.modelUpperName}Model();
         model.set${root.primaryUpper}(${root.primaryName});
-        return (${root.modelUpperName}Model)${root.modelLowerName}Mapper.selectByPrimaryKey(model);
+        return (${root.modelUpperName}Model) ${root.modelLowerName}Mapper.selectByPrimaryKey(model);
     }
 
     public ${root.modelUpperName}Model queryOne(${root.modelUpperName}Model model)
@@ -113,10 +113,12 @@ public class ${root.modelUpperName}Service{
         throws Exception
     {
         ${root.modelUpperName}Condition condition = ${root.modelUpperName}Condition.getCondition(model);
-        return ${root.modelLowerName}Mapper.deleteByCondition(condition) == 1;
+        return ${root.modelLowerName}Mapper.deleteByCondition(condition) > 0;
     }
 
-    public Boolean deleteById(${root.primaryType} ${root.primaryName}) throws Exception {
+    public Boolean deleteById(${root.primaryType} ${root.primaryName})
+        throws Exception
+    {
         ${root.modelUpperName}Model model = new ${root.modelUpperName}Model();
         model.set${root.primaryUpper}(${root.primaryName});
         return ${root.modelLowerName}Mapper.deleteByPrimaryKey(model) == 1;
@@ -126,13 +128,9 @@ public class ${root.modelUpperName}Service{
         throws Exception
     {
         if (list != null && list.size() > 0){
-            int count = 0;
-            for (${root.primaryType} ${root.primaryName} : list){
-                ${root.modelUpperName}Model model = new ${root.modelUpperName}Model();
-                model.set${root.primaryUpper}(${root.primaryName});
-                count = count + ${root.modelLowerName}Mapper.deleteByPrimaryKey(model);
-            }
-            return count == list.size();
+            ${root.modelUpperName}Condition condition = ${root.modelUpperName}Condition.getCondition(new ${root.modelUpperName}Model());
+            condition.and${root.primaryUpper}In(list);
+            return ${root.modelLowerName}Mapper.deleteByCondition(condition) > 0;
         }
         return false;
     }

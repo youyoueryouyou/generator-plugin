@@ -116,7 +116,7 @@ public class ${root.modelUpperName}Controller implements ${root.modelUpperName}A
             return BaseResponse.successResult(null);
         }catch (Exception e){
             e.printStackTrace();
-            return BaseResponse.failureMessage("page failure!");
+            return BaseResponse.failureMessage();
         }
     }
 

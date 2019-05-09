@@ -75,8 +75,7 @@ public class GeneratorService {
         Freemarker.writeFile(ftlPath+"api.ftl",rootMap,api_path+"api"+File.separator+config.getModelName()+"Api.java");
         Freemarker.writeFile(ftlPath+"hystric.ftl",rootMap,api_path+"hystric"+File.separator+config.getModelName()+"Hystric.java");
         Freemarker.overWriteFile(ftlPath+"condition.ftl",rootMap,provider_path+"condition"+File.separator+config.getModelName()+"Condition.java");
-        Freemarker.writeFile(ftlPath+"serviceInter.ftl",rootMap,provider_path+"service"+File.separator+config.getModelName()+"Service.java");
-        Freemarker.writeFile(ftlPath+"serviceImpl.ftl",rootMap,provider_path+"service"+File.separator+"impl"+File.separator+config.getModelName()+"ServiceImpl.java");
+        Freemarker.writeFile(ftlPath+"service.ftl",rootMap,provider_path+"service"+File.separator+config.getModelName()+"Service.java");
         Freemarker.writeFile(ftlPath+"controller.ftl",rootMap,provider_path+"controller"+File.separator+config.getModelName()+"Controller.java");
         Freemarker.writeFile(ftlPath+"mapper.ftl",rootMap,provider_path+"mapper"+File.separator+config.getModelName()+"Mapper.java");
         Freemarker.writeFile(ftlPath+"mybatis.ftl",rootMap,resource_path+"mybatis"+File.separator+config.getModelName()+"Mapper.xml");

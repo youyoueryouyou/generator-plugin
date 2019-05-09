@@ -14,19 +14,19 @@ import java.util.List;
 public interface ${root.modelUpperName}Api {
     /***
      * 增加数据
-     * @param param
+     * @param model
      * @return BaseResponse
      */
     @PostMapping("add")
-    public BaseResponse add(@RequestBody ${root.modelUpperName}Model param);
+    public BaseResponse add(@RequestBody ${root.modelUpperName}Model model);
 
     /***
      * 更新数据
-     * @param param
+     * @param model
      * @return BaseResponse
      */
     @PostMapping("update")
-    public BaseResponse update(@RequestBody ${root.modelUpperName}Model param);
+    public BaseResponse update(@RequestBody ${root.modelUpperName}Model model);
 
     /***
      * 删除数据
@@ -54,17 +54,20 @@ public interface ${root.modelUpperName}Api {
 
     /***
      * 根据条件获取数据列表
-     * @param param
+     * @param model
      * @return BaseResponse
      */
     @PostMapping("list")
-    public BaseResponse list(@RequestBody(required = false) ${root.modelUpperName}Model param);
+    public BaseResponse list(@RequestBody(required = false) ${root.modelUpperName}Model model);
 
     /***
      * 根据条件获取分页数据
-     * @param param
+     * @param model
      * @return BaseResponse
      */
     @PostMapping("page")
-    public BaseResponse page(@RequestBody(required = false) ${root.modelUpperName}Model param);
+    public BaseResponse page(@RequestBody(required = false) ${root.modelUpperName}Model model);
+
+    @PostMapping("test")
+    public BaseResponse test(@RequestBody(required = false) ${root.modelUpperName}Model model);
 }

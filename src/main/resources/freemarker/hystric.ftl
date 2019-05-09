@@ -13,12 +13,12 @@ import java.util.List;
 @Component
 public class ${root.modelUpperName}Hystric implements ${root.modelUpperName}Api {
     @Override
-    public BaseResponse add(${root.modelUpperName}Model param) {
+    public BaseResponse add(${root.modelUpperName}Model model) {
         return BaseResponse.failureMessage();
     }
 
     @Override
-    public BaseResponse update(${root.modelUpperName}Model param) {
+    public BaseResponse update(${root.modelUpperName}Model model) {
         return BaseResponse.failureMessage();
     }
 
@@ -38,12 +38,17 @@ public class ${root.modelUpperName}Hystric implements ${root.modelUpperName}Api 
     }
 
     @Override
-    public BaseResponse list(${root.modelUpperName}Model param) {
+    public BaseResponse list(${root.modelUpperName}Model model) {
         return BaseResponse.failureMessage();
     }
 
     @Override
-    public BaseResponse page(${root.modelUpperName}Model param) {
+    public BaseResponse page(${root.modelUpperName}Model model) {
+        return BaseResponse.failureMessage();
+    }
+
+    @Override
+    public BaseResponse test(${root.modelUpperName}Model model) {
         return BaseResponse.failureMessage();
     }
 }

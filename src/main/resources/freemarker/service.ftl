@@ -1,4 +1,4 @@
-package ${root.groupName}.service.impl;
+package ${root.groupName}.service;
 
 import java.util.List;
 
@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 import com.you.base.Page;
-import ${root.groupName}.service.${root.modelUpperName}Service;
 import ${root.groupName}.mapper.${root.modelUpperName}Mapper;
 import ${root.groupName}.model.${root.modelUpperName}Model;
 
@@ -16,21 +15,19 @@ import ${root.groupName}.model.${root.modelUpperName}Model;
  * @author ${config.author}
  */
 @Service
-public class ${root.modelUpperName}ServiceImpl implements ${root.modelUpperName}Service {
+public class ${root.modelUpperName}Service{
     @Autowired
     @SuppressWarnings("all")
     private ${root.modelUpperName}Mapper ${root.modelLowerName}Mapper;
 
-    @Override
     public ${root.modelUpperName}Model queryById(${root.primaryType} ${root.primaryName})
         throws Exception
     {
         ${root.modelUpperName}Model model = new ${root.modelUpperName}Model();
         model.set${root.primaryUpper}(${root.primaryName});
-        return ${root.modelLowerName}Mapper.selectByPrimaryKey(model);
+        return (${root.modelUpperName}Model)${root.modelLowerName}Mapper.selectByPrimaryKey(model);
     }
 
-    @Override
     public ${root.modelUpperName}Model queryOne(${root.modelUpperName}Model model)
         throws Exception
     {
@@ -42,7 +39,6 @@ public class ${root.modelUpperName}ServiceImpl implements ${root.modelUpperName}
         return null;
     }
 
-    @Override
     public List<${root.modelUpperName}Model> queryList(${root.modelUpperName}Model model)
         throws Exception
     {
@@ -50,7 +46,6 @@ public class ${root.modelUpperName}ServiceImpl implements ${root.modelUpperName}
         return ${root.modelLowerName}Mapper.selectByCondition(condition);
     }
 
-    @Override
     public Page<${root.modelUpperName}Model> queryPage(${root.modelUpperName}Model model)
         throws Exception
     {
@@ -64,7 +59,6 @@ public class ${root.modelUpperName}ServiceImpl implements ${root.modelUpperName}
         return page;
     }
 
-    @Override
     public Integer queryCount(${root.modelUpperName}Model model)
         throws Exception
     {
@@ -72,7 +66,6 @@ public class ${root.modelUpperName}ServiceImpl implements ${root.modelUpperName}
         return ${root.modelLowerName}Mapper.countByCondition(condition);
     }
 
-    @Override
     public Boolean insert(${root.modelUpperName}Model model)
         throws Exception
     {
@@ -84,7 +77,6 @@ public class ${root.modelUpperName}ServiceImpl implements ${root.modelUpperName}
         return ${root.modelLowerName}Mapper.insertSelective(model) == 1;
     }
 
-    @Override
     public Boolean insertBatch(List<${root.modelUpperName}Model> list)
         throws Exception
     {
@@ -98,14 +90,12 @@ public class ${root.modelUpperName}ServiceImpl implements ${root.modelUpperName}
         return false;
     }
 
-    @Override
     public Boolean update(${root.modelUpperName}Model model)
         throws Exception
     {
         return ${root.modelLowerName}Mapper.updateByPrimaryKeySelective(model) == 1;
     }
 
-    @Override
     public Boolean updateBatch(List<${root.modelUpperName}Model> list)
         throws Exception
     {
@@ -119,8 +109,6 @@ public class ${root.modelUpperName}ServiceImpl implements ${root.modelUpperName}
         return false;
     }
 
-
-    @Override
     public Boolean delete(${root.modelUpperName}Model model)
         throws Exception
     {
@@ -128,14 +116,12 @@ public class ${root.modelUpperName}ServiceImpl implements ${root.modelUpperName}
         return ${root.modelLowerName}Mapper.deleteByCondition(condition) == 1;
     }
 
-    @Override
     public Boolean deleteById(${root.primaryType} ${root.primaryName}) throws Exception {
         ${root.modelUpperName}Model model = new ${root.modelUpperName}Model();
         model.set${root.primaryUpper}(${root.primaryName});
         return ${root.modelLowerName}Mapper.deleteByPrimaryKey(model) == 1;
     }
 
-    @Override
     public Boolean deleteBatch(List<${root.primaryType}> list)
         throws Exception
     {

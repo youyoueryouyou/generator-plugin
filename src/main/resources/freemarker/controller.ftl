@@ -21,9 +21,9 @@ public class ${root.modelUpperName}Controller implements ${root.modelUpperName}A
 
     @Override
     @PostMapping("add")
-    public BaseResponse add(@RequestBody ${root.modelUpperName}Model param) {
+    public BaseResponse add(@RequestBody ${root.modelUpperName}Model model) {
         try {
-            if (${root.modelLowerName}Service.insert(param)){
+            if (${root.modelLowerName}Service.insert(model)){
                 return BaseResponse.successMessage("add success!");
             }
         }catch (Exception e){
@@ -34,9 +34,9 @@ public class ${root.modelUpperName}Controller implements ${root.modelUpperName}A
 
     @Override
     @PostMapping("update")
-    public BaseResponse update(@RequestBody ${root.modelUpperName}Model param) {
+    public BaseResponse update(@RequestBody ${root.modelUpperName}Model model) {
         try {
-            if (${root.modelLowerName}Service.update(param)){
+            if (${root.modelLowerName}Service.update(model)){
                 return BaseResponse.successMessage("update success!");
             }
         }catch (Exception e){
@@ -87,9 +87,9 @@ public class ${root.modelUpperName}Controller implements ${root.modelUpperName}A
 
     @Override
     @PostMapping("list")
-    public BaseResponse list(@RequestBody(required = false) ${root.modelUpperName}Model param) {
+    public BaseResponse list(@RequestBody(required = false) ${root.modelUpperName}Model model) {
         try {
-            List<${root.modelUpperName}Model> result = ${root.modelLowerName}Service.queryList(param);
+            List<${root.modelUpperName}Model> result = ${root.modelLowerName}Service.queryList(model);
             return BaseResponse.successResult(result, "list success!");
         }catch (Exception e){
             e.printStackTrace();
@@ -99,14 +99,25 @@ public class ${root.modelUpperName}Controller implements ${root.modelUpperName}A
 
     @Override
     @PostMapping("page")
-    public BaseResponse page(@RequestBody(required = false) ${root.modelUpperName}Model param) {
+    public BaseResponse page(@RequestBody(required = false) ${root.modelUpperName}Model model) {
         try {
-            Page<${root.modelUpperName}Model> result = ${root.modelLowerName}Service.queryPage(param);
+            Page<${root.modelUpperName}Model> result = ${root.modelLowerName}Service.queryPage(model);
             return BaseResponse.successResult(result, "page success!");
         }catch (Exception e){
             e.printStackTrace();
         }
         return BaseResponse.failureMessage("page failure!");
+    }
+
+    @Override
+    @PostMapping("test")
+    public BaseResponse test(@RequestBody(required = false) ${root.modelUpperName}Model model) {
+        try {
+            return BaseResponse.successResult(null);
+        }catch (Exception e){
+            e.printStackTrace();
+            return BaseResponse.failureMessage("page failure!");
+        }
     }
 
 }

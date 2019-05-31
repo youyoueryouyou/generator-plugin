@@ -113,6 +113,13 @@ public class ${root.modelUpperName}Controller implements ${root.modelUpperName}A
     @PostMapping("test")
     public BaseResponse test(@RequestBody(required = false) ${root.modelUpperName}Model model) {
         try {
+            for (int i=0,len = model.getColumns().size();i<len;i++){
+                if (i == (len - 1)){
+                    System.out.println(model.getColumns().get(i).getFieldName()+":''");
+                }else {
+                    System.out.println(model.getColumns().get(i).getFieldName()+":'',");
+                }
+            }
             return BaseResponse.successResult(null);
         }catch (Exception e){
             e.printStackTrace();

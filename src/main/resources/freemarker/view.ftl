@@ -17,10 +17,10 @@
                     columns: [
                         <#list root.fields as p>
                         <#if p.javaType == 'String'>
-                        {key: '${p.javaName}', title: '${p.javaName}', search:'text',form:'text'}
+                        {key: '${p.javaName}', title: '${p.javaName}', search:'text',form:'text'},
                         <#elseif p.javaType == 'Date'>
-                        {key: '${p.javaName}', title: '${p.javaName}', search:'date'}
-                        {key: '${p.javaName}', title: '${p.javaName}', search:'text',form:'text',format:function(row){return row.${p.javaName}}}
+                        {key: '${p.javaName}', title: '${p.javaName}', search:'date'},
+                        {key: '${p.javaName}', title: '${p.javaName}', search:'text',form:'text',format:function(row){return row.${p.javaName}}},
                         <#else>
                         </#if>
                         </#list>

@@ -21,7 +21,7 @@
                         <#elseif p.javaType == 'Date'>
                         {key: '${p.javaName}', title: '${p.javaName}', search:'date'},
                         <#else>
-                        {key: '${p.javaName}', title: '${p.javaName}', search:'text',form:'text',format:function(row){return row.${p.javaName}}},
+                        {key: '${p.javaName}', title: '${p.javaName}', search:'text',form:'text',format:function(row){return row.${p.javaName};}},
                         </#if>
                         </#list>
                     ],

@@ -20,8 +20,8 @@
                         {key: '${p.javaName}', title: '${p.javaName}', search:'text',form:'text'},
                         <#elseif p.javaType == 'Date'>
                         {key: '${p.javaName}', title: '${p.javaName}', search:'date'},
-                        {key: '${p.javaName}', title: '${p.javaName}', search:'text',form:'text',format:function(row){return row.${p.javaName}}},
                         <#else>
+                        {key: '${p.javaName}', title: '${p.javaName}', search:'text',form:'text',format:function(row){return row.${p.javaName}}},
                         </#if>
                         </#list>
                     ],

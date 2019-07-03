@@ -79,6 +79,7 @@ public class GeneratorService {
         Freemarker.writeFile(ftlPath+"controller.ftl",rootMap,provider_path+"controller"+File.separator+config.getModelName()+"Controller.java");
         Freemarker.writeFile(ftlPath+"mapper.ftl",rootMap,provider_path+"mapper"+File.separator+config.getModelName()+"Mapper.java");
         Freemarker.writeFile(ftlPath+"mybatis.ftl",rootMap,resource_path+"mybatis"+File.separator+config.getModelName()+"Mapper.xml");
+        Freemarker.writeFile(ftlPath+"view.ftl",rootMap,api_path+"model"+File.separator+config.getModelName()+".vue");
       }
     public void main(ConfigModel config) throws Exception{
         this.config = config;

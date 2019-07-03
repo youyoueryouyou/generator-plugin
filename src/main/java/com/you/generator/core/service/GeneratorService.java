@@ -73,7 +73,7 @@ public class GeneratorService {
         String resource_path = config.getProjectPath() + File.separator + config.getModuleName() + "-provider" + File.separator + resPath + File.separator;
         File beanFile = new File(api_path + "bean" + File.separator + config.getModelName() + "Bean.java");
         if (!beanFile.exists()) {
-            Freemarker.writeFile(ftlPath + "view.ftl", rootMap, api_path + "model" + File.separator + config.getModelName() + ".vue");
+            Freemarker.writeFile(ftlPath + "view.ftl", rootMap, api_path + "bean" + File.separator + config.getModelName() + ".vue");
         }
         Freemarker.overWriteFile(ftlPath + "bean.ftl", rootMap, api_path + "bean" + File.separator + config.getModelName() + "Bean.java");
         Freemarker.writeFile(ftlPath + "model.ftl", rootMap, api_path + "model" + File.separator + config.getModelName() + "Model.java");

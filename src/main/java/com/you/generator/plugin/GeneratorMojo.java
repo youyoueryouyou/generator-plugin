@@ -151,7 +151,7 @@ public class GeneratorMojo extends AbstractMojo
         }
         if (StringUtil.isNotEmpty(modelName) && !testValue.equals(modelName))
         {
-            configModel.setModelName(modelName);
+            configModel.setModelName(StringUtil.getFirstUpperName(modelName));
         }
         if (StringUtil.isNotEmpty(author) && !testValue.equals(author))
         {

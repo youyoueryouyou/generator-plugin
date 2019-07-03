@@ -52,9 +52,14 @@ public class StringUtil {
 
     public static String getModelNameByDb(String content){
         String[] temps = content.replace("_","#").replace("-","#").split("#");
+        int count = temps.length;
         StringBuffer buffer = new StringBuffer();
-        for (String temp : temps){
-            buffer.append(getFirstUpperName(temp));
+        int i = 0;
+        if (count >2){
+            i = count -2;
+        }
+        for (;i<count;i++){
+            buffer.append(getFirstUpperName(temps[i]));
         }
         return buffer.toString();
     }

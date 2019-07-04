@@ -1,6 +1,8 @@
 <template>
-    <base-table ref="baseTable" :setting="setting">
-    </base-table>
+    <div>
+        <base-table ref="baseTable" :setting="setting">
+        </base-table>
+    </div>
 </template>
 
 <script>
@@ -13,6 +15,7 @@
         data() {
             return {
                 setting: {
+                    parent:this,
                     qryUrl: '${config.moduleName}/${root.modelLowerName}/page',
                     columns: [
                         <#list root.fields as p>

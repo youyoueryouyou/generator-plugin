@@ -83,7 +83,7 @@ public class ${root.modelUpperName}Service{
         if (list != null && list.size() > 0){
             int count = 0;
             for (${root.modelUpperName}Model model : list){
-               count = count + ${root.modelLowerName}Mapper.updateByPrimaryKeySelective(model);
+               count = count + ${root.modelLowerName}Mapper.insertSelective(model);
             }
             return count == list.size();
         }

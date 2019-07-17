@@ -6,12 +6,7 @@
 </template>
 
 <script>
-    import baseTable from '@base/base-table';
-
     export default {
-        components: {
-            baseTable
-        },
         data() {
             return {
                 setting: {
